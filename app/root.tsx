@@ -6,7 +6,12 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 
-export function Layout({ children }: { children: React.ReactNode }) {
+import styles from "./tailwind.css?url";
+import { LinksFunction } from "@remix-run/node";
+
+export const links: LinksFunction = () => [{ rel: "stylesheet", href: styles }];
+
+export default function App() {
   return (
     <html lang="en">
       <head>
@@ -16,14 +21,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        {children}
+        <h1 className="text-3xl font-bold underline">TFL Tube App</h1>
+        <Outlet />
         <ScrollRestoration />
         <Scripts />
       </body>
     </html>
   );
-}
-
-export default function App() {
-  return <Outlet />;
 }
