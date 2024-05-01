@@ -1,4 +1,6 @@
-import type { MetaFunction } from "@remix-run/node";
+import { json, type MetaFunction } from "@remix-run/node";
+import { useLoaderData } from "@remix-run/react";
+import { getAllStatuses } from "~/data/getAllStatuses";
 
 export const meta: MetaFunction = () => {
   return [
@@ -10,6 +12,19 @@ export const meta: MetaFunction = () => {
   ];
 };
 
+export const loader = async () => {
+  const data = await getAllStatuses();
+  console.log(data);
+  return json({ lines: data });
+};
+
 export default function Index() {
-  return <div></div>;
+  const { lines } = useLoaderData<typeof loader>();
+  console.log(lines);
+
+  return (
+    <>
+      <h1 className="text-3xl font-bold underline">Lines</h1>
+    </>
+  );
 }
