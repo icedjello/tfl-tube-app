@@ -1,5 +1,5 @@
 import { json, type MetaFunction } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import { NavLink, useLoaderData } from "@remix-run/react";
 import { getAllStatuses } from "~/data/getAllStatuses";
 
 export const meta: MetaFunction = () => {
@@ -14,17 +14,31 @@ export const meta: MetaFunction = () => {
 
 export const loader = async () => {
   const data = await getAllStatuses();
-  console.log(data);
   return json({ lines: data });
 };
 
 export default function Index() {
   const { lines } = useLoaderData<typeof loader>();
-  console.log(lines);
 
   return (
     <>
       <h1 className="text-3xl font-bold underline">Lines</h1>
+      <nav>
+        <ul>
+          {lines.map((line) => {
+            return (
+              <li key={line.id}>
+                <NavLink to={`/${line.id}`}>
+                  {line.name} -{" "}
+                  {line.lineStatuses
+                    .map((ls) => ls.statusSeverityDescription)
+                    .join(", ")}
+                </NavLink>
+              </li>
+            );
+          })}
+        </ul>
+      </nav>
     </>
   );
 }
