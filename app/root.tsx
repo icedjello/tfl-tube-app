@@ -1,6 +1,7 @@
 import {
   Links,
   Meta,
+  NavLink,
   Outlet,
   Scripts,
   ScrollRestoration,
@@ -21,7 +22,9 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <h1 className="text-3xl font-bold underline">TFL Tube App</h1>
+        <NavLink to="/">
+          <h1 className="text-3xl font-bold underline">TFL Tube App</h1>
+        </NavLink>
         <Outlet />
         <ScrollRestoration />
         <Scripts />
