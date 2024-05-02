@@ -13,26 +13,32 @@ export const meta: MetaFunction = () => {
 };
 
 export const loader = async () => {
-  const data = await getAllStatuses();
-  return json({ lines: data });
+  const allStatuses = await getAllStatuses();
+
+  if (!allStatuses) {
+    throw new Response("Not Found", { status: 404 });
+  }
+
+  return json({ allStatuses });
 };
 
 export default function Index() {
-  const { lines } = useLoaderData<typeof loader>();
+  const { allStatuses } = useLoaderData<typeof loader>();
 
   return (
     <>
       <h1 className="text-3xl font-bold underline">Lines</h1>
       <nav>
         <ul>
-          {lines.map((line) => {
+          {allStatuses.map(({ name, id, lineStatuses }) => {
+            const severityDescription = lineStatuses
+              .map((ls) => ls.statusSeverityDescription)
+              .join(", ");
+
             return (
-              <li key={line.id}>
-                <NavLink to={`/${line.id}`}>
-                  {line.name} -{" "}
-                  {line.lineStatuses
-                    .map((ls) => ls.statusSeverityDescription)
-                    .join(", ")}
+              <li key={id}>
+                <NavLink to={`/${id}`}>
+                  {name} - {severityDescription}
                 </NavLink>
               </li>
             );

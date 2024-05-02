@@ -1,16 +1,23 @@
-import { StopPointSequence } from "../data/getLine";
+import { Station } from "../data/getLine";
 
-export default function Branch(props: StopPointSequence) {
+type Props = {
+  stopPoint: Station[];
+  branchId: number;
+};
+
+export default function Branch({ stopPoint, branchId }: Props) {
+  const beginningAndEnd = `${stopPoint?.at(0)?.name} - ${
+    stopPoint.at(-1)?.name
+  }`;
+
   return (
     <>
       <br />
-      <h3 className="font-bold text-xl">
-        {props.stopPoint?.at(0)?.name} - {props.stopPoint.at(-1)?.name}
-      </h3>
+      <h3>{beginningAndEnd}</h3>
       <ol>
-        {props.stopPoint.map((sp) => (
-          <li key={sp.id}>{sp.name}</li>
-        ))}
+        {stopPoint.map((sp) => {
+          return <li key={`${branchId}--${sp.id}`}>{sp.name}</li>;
+        })}
       </ol>
     </>
   );
