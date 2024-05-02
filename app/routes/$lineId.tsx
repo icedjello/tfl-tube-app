@@ -1,6 +1,7 @@
 import { LoaderFunctionArgs, json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import invariant from "tiny-invariant";
+import Branch from "~/components/Branch";
 import { getLine } from "~/data/getLine";
 import { getLineStatus } from "~/data/getLineStatus";
 
@@ -29,6 +30,9 @@ export default function LineDetails() {
           ))
         )}
       </ol>
+      {line.stopPointSequences.map((line) => {
+        return <Branch key={line.branchId} {...line} />;
+      })}
     </>
   );
 }
