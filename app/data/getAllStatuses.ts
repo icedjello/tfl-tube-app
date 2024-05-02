@@ -67,7 +67,12 @@ export enum Name {
 
 export async function getAllStatuses() {
   const fetchModeStatus = (mode: string) =>
-    fetch(`https://api.tfl.gov.uk/line/mode/${mode}/status`);
+    fetch(`https://api.tfl.gov.uk/line/mode/${mode}/status`, {
+      headers: {
+        "Content-Type": "application/xml",
+      },
+    });
+  // "Content-type": "application/json",
 
   const allResponses = await Promise.all([
     fetchModeStatus("overground"),

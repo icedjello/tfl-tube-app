@@ -52,7 +52,11 @@ export interface ServiceType {
 }
 
 export async function getLineStatus(lineId: string) {
-  const response = await fetch(`https://api.tfl.gov.uk/line/${lineId}/status`);
-  const data = (await response.json()) as Status[];
-  return data;
+  const response = await fetch(`https://api.tfl.gov.uk/line/${lineId}/status`, {
+    headers: {
+      "Content-type": "application/json",
+    },
+  });
+  const data = await response.json();
+  return data as Status[];
 }

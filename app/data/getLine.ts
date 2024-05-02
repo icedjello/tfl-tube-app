@@ -104,7 +104,12 @@ export interface StopPointSequence {
 
 export async function getLine(lineId: string) {
   const response = await fetch(
-    `https://api.tfl.gov.uk/line/${lineId}/route/sequence/outbound`
+    `https://api.tfl.gov.uk/line/${lineId}/route/sequence/outbound`,
+    {
+      headers: {
+        "Content-type": "application/json",
+      },
+    }
   );
   const data = (await response.json()) as LineDetails;
   return data;
