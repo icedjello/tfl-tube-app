@@ -6,7 +6,6 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-
 import styles from "./tailwind.css?url";
 import { LinksFunction } from "@remix-run/node";
 
@@ -23,7 +22,7 @@ export default function App() {
       </head>
       <body>
         <NavLink to="/">
-          <h1 className="text-3xl font-bold underline">TFL Tube App</h1>
+          <h1>TFL Tube App</h1>
         </NavLink>
         <Outlet />
         <ScrollRestoration />

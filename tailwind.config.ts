@@ -5,5 +5,6 @@ export default {
   theme: {
     extend: {},
   },
+  safelist: ["primary"],
   plugins: [],
 } satisfies Config;

@@ -24,10 +24,9 @@ export const loader = async () => {
 
 export default function Index() {
   const { allStatuses } = useLoaderData<typeof loader>();
-
+  console.log(allStatuses);
   return (
     <>
-      <h1 className="text-3xl font-bold underline">Lines</h1>
       <nav>
         <ul>
           {allStatuses.map(({ name, id, lineStatuses }) => {
@@ -38,7 +37,16 @@ export default function Index() {
             return (
               <li key={id}>
                 <NavLink to={`/${id}`}>
-                  {name} - {severityDescription}
+                  <div
+                    className={
+                      "rounded border-2 border-neutral-800 px-4 py-2 m-2" +
+                      ` ${id}`
+                    }
+                  >
+                    <h3>
+                      {name} - {severityDescription}
+                    </h3>
+                  </div>
                 </NavLink>
               </li>
             );

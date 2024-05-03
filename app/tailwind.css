@@ -1,3 +1,83 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "recoleta";
+  src: url("/Recoleta-RegularDEMO.otf");
+}
+
+@layer base {
+  html {
+    font-family: "recoleta", serif;
+    font-variant-ligatures: none;
+  }
+
+  body {
+    @apply m-8;
+  }
+  h1 {
+    @apply text-3xl;
+  }
+  h2 {
+    @apply text-2xl;
+  }
+  h3 {
+    @apply text-xl;
+  }
+  p {
+    @apply text-lg;
+  }
+}
+
+.bakerloo {
+  @apply bg-amber-800 text-neutral-100;
+}
+
+.central {
+  @apply bg-yellow-400 text-neutral-950;
+}
+
+.circle {
+  @apply bg-red-600 text-neutral-100;
+}
+
+.district {
+  @apply bg-green-600 text-neutral-100;
+}
+
+.elizabeth {
+  @apply bg-purple-600 text-neutral-100;
+}
+
+.hammersmith-city {
+  @apply bg-pink-400 text-neutral-950;
+}
+
+.jubilee {
+  @apply bg-gray-600 text-neutral-100;
+}
+
+.london-overground {
+  @apply bg-orange-600 text-neutral-950;
+}
+
+.metropolitan {
+  @apply bg-fuchsia-800 text-neutral-100;
+}
+
+.northern {
+  @apply bg-neutral-800 text-neutral-100;
+}
+
+.piccadilly {
+  @apply bg-indigo-800 text-neutral-100;
+}
+
+.victoria {
+  @apply bg-sky-400 text-neutral-950;
+}
+
+.waterloo-city {
+  @apply bg-teal-400  text-neutral-950;
+}
