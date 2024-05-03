@@ -26,10 +26,10 @@ export default function LineNav({ lineName, lineId, lineStatuses }: Props) {
     <li>
       <NavLink to={`/${lineId}`}>
         <Card styles={`${colors.bg} ${colors.text}`}>
-          <span className="flex flex-row">
+          <span className="flex flex-row md:flex-row-reverse">
             <h3>{lineName}</h3>
             <div
-              className={`rounded-3xl border self-center w-4 h-4 ml-2 md:ml-4 ${
+              className={`rounded-3xl border self-center w-4 h-4 ml-2 md:mr-2 ${
                 severityColors[severityNumber - 1]
               } ${colors.border}`}
             ></div>

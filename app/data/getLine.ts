@@ -9,7 +9,6 @@ export type Station = {
   icsId: string;
   zone: string;
   lines: Line[];
-  status: boolean;
   id: string;
   name: string;
 };
