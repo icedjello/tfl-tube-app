@@ -14,70 +14,22 @@
   }
 
   body {
-    @apply m-8;
+    @apply m-8  bg-gray-100;
   }
+
   h1 {
-    @apply text-3xl;
+    @apply text-3xl md:text-5xl font-bold py-3 md:py-4;
   }
+
   h2 {
-    @apply text-2xl;
+    @apply text-xl md:text-2xl py-3 md:py-4;
   }
+
   h3 {
-    @apply text-xl;
+    @apply text-xl md:text-2xl font-bold  md:py-1;
   }
+
   p {
-    @apply text-lg;
+    @apply font-sans  md:text-lg;
   }
-}
-
-.bakerloo {
-  @apply bg-amber-800 text-neutral-100;
-}
-
-.central {
-  @apply bg-yellow-400 text-neutral-950;
-}
-
-.circle {
-  @apply bg-red-600 text-neutral-100;
-}
-
-.district {
-  @apply bg-green-600 text-neutral-100;
-}
-
-.elizabeth {
-  @apply bg-purple-600 text-neutral-100;
-}
-
-.hammersmith-city {
-  @apply bg-pink-400 text-neutral-950;
-}
-
-.jubilee {
-  @apply bg-gray-600 text-neutral-100;
-}
-
-.london-overground {
-  @apply bg-orange-600 text-neutral-950;
-}
-
-.metropolitan {
-  @apply bg-fuchsia-800 text-neutral-100;
-}
-
-.northern {
-  @apply bg-neutral-800 text-neutral-100;
-}
-
-.piccadilly {
-  @apply bg-indigo-800 text-neutral-100;
-}
-
-.victoria {
-  @apply bg-sky-400 text-neutral-950;
-}
-
-.waterloo-city {
-  @apply bg-teal-400  text-neutral-950;
 }
