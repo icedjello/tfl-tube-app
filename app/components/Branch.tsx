@@ -13,10 +13,8 @@ export default function Branch({ stopPoint, branchId }: Props) {
 
   return (
     <Card styles="my-4 bg-neutral-100 text-neutral-950">
-      <h3 className={"pb-2"}>
-        Between: {beginningAndEnd} Underground Stations
-      </h3>
-      <ol className="justify-self-start md:pl-2">
+      <h3 className={"pb-2 justify-self-start"}>Between: {beginningAndEnd}</h3>
+      <ol className="pl-2 justify-self-start">
         {stopPoint.map((sp) => (
           <li className="font-sans" key={`${sp.icsId}-${branchId}-${sp.id}`}>
             {sp.name}

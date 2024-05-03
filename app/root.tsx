@@ -23,7 +23,7 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <div className="md:max-w-1/3 flex flex-col">
+        <div className="flex flex-col">
           <NavLink to="/">
             <h1 className="flex justify-center md:justify-normal md:pl-2">
               TFL Tube App
