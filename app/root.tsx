@@ -9,7 +9,9 @@ import {
 import styles from "./tailwind.css?url";
 import { LinksFunction } from "@remix-run/node";
 
-export const links: LinksFunction = () => [{ rel: "stylesheet", href: styles }];
+export const links: LinksFunction = () => [
+  { rel: "stylesheet", href: styles, as: "style" },
+];
 
 export default function App() {
   return (
@@ -21,10 +23,14 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <NavLink to="/">
-          <h1>TFL Tube App</h1>
-        </NavLink>
-        <Outlet />
+        <div className="md:max-w-1/3 flex flex-col">
+          <NavLink to="/">
+            <h1 className="flex justify-center md:justify-normal md:pl-2">
+              TFL Tube App
+            </h1>
+          </NavLink>
+          <Outlet />
+        </div>
         <ScrollRestoration />
         <Scripts />
       </body>
