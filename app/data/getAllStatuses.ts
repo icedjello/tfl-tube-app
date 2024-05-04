@@ -23,8 +23,8 @@ export async function getAllStatuses() {
   // dropping overground & elizabeth-line because complexity
   const allResponses = await Promise.all([
     // fetchModeStatus("overground"),
-    fetchModeStatus("tube"),
     // fetchModeStatus("elizabeth-line"),
+    fetchModeStatus("tube"),
   ]);
 
   // const contentType = response.headers.get("content-type");
@@ -36,6 +36,7 @@ export async function getAllStatuses() {
     await Promise.all(allResponses.map((r) => r.json()))
   ).flat() as LineAndStatus[];
 
+  // a little bit of sorting so it looks like the TFL widget here (https://tfl.gov.uk/).
   return data.sort((a, b) => {
     const aMinSeverity = Math.min(
       ...a.lineStatuses.map(({ statusSeverity }) => statusSeverity)

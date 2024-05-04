@@ -17,7 +17,7 @@ export default function Branch({ stopPoint }: Props) {
         {stopPoint.map(
           (
             sp,
-            i // I know this is wrong but it will do for now.
+            i // see below...
           ) => (
             <li className="font-sans" key={`${i}`}>
               {sp.name}
@@ -28,3 +28,9 @@ export default function Branch({ stopPoint }: Props) {
     </Card>
   );
 }
+
+// I know it's wrong to use `i` for a `key`.
+// But three hours is three hours.
+// If the page was more expensive I wouldn't do this.
+// The performance-hit in this case is quite negligible
+// because you have to refresh to get new data anyway.
